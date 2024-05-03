@@ -83,6 +83,8 @@ func ParseFromYaml(yamlFilePath string) (CV, error) {
     if err != nil {
         return cv, err
     }
+    defer yamlFile.Close()
+
     data, err := io.ReadAll(yamlFile)
     if err != nil {
         return cv, err
