@@ -1,11 +1,18 @@
 package main
 
 import (
-    "fmt"
-    "cv/args"
+	"cv/args"
+	"cv/cv"
+	"fmt"
 )
 
 func main() {
     args := args.ParseCreateArgs()
-    fmt.Printf("%+v\n", args)
+
+    cv, err := cv.ParseFromYaml(args.DataFile)
+    if err != nil {
+        fmt.Println(err)
+    }
+
+    fmt.Println(cv)
 }
