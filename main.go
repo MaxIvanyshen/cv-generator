@@ -3,6 +3,7 @@ package main
 import (
 	"cv/args"
 	"cv/cv"
+	"cv/templates"
 	"fmt"
 	"strings"
 )
@@ -26,5 +27,9 @@ func main() {
         fmt.Println(err)
     }
 
-    fmt.Println(resume)
+    err = templates.GeneratePDF(resume, args.Template)
+    if err != nil {
+        fmt.Println(err)
+    }
+
 }
