@@ -16,12 +16,12 @@ func GeneratePDF(cv cv.CV, templateN uint) error {
     }
     fmt.Println(html)
 
-    err = os.WriteFile("./input.html", []byte(html), 0644)
+    err = os.WriteFile("./out/input.html", []byte(html), 0644)
     if err != nil {
         return err
     }
 
-    cmd := exec.Command("wkhtmltopdf", "--enable-local-file-access", "./input.html", "./out.pdf")
+    cmd := exec.Command("wkhtmltopdf", "--enable-local-file-access", "./out/input.html", "./out/out.pdf")
 
     out, err := cmd.Output()
     if err != nil {
