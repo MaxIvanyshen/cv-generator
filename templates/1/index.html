@@ -3,17 +3,58 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{{ .Name }}'s resume</title>
+        <link href="/home/max/coding/cv-generator/templates/1/static/style.css" rel="stylesheet">
+        <link href="/home/max/coding/cv-generator/templates/1/static/roboto_font.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     </head>
-    <style>
-        h1 {
-            color: red;
-        }
-    </style>
-
     <body>
-        <h1>{{ .Title }}</h1>
-        <h1>{{ .About }}</h1>
+        <div class="name-container">
+            <h1 class="roboto-bold">{{ .Name }}</h1>
+        </div> 
+        <div class="title-container">
+            <h2 class="roboto-thin">{{ .Title }}</h1>
+        </div> 
+        <hr class="divider-solid"></hr>
+        <div class="grid-container">
+
+            <div class="sidebar">
+                <div class="contact">
+                    <h1 class="roboto-medium">CONTACT</h1>
+                    <div class="contact-info">
+                        <img width="30px;" src="/home/max/coding/cv-generator/templates/1/static/mobile-phone-695.svg" alt="">
+                        <p class="roboto-light">{{ .Contact.Phone }}</p>
+                    </div>
+                    <div class="contact-info">
+                        <img width="30px;" src="/home/max/coding/cv-generator/templates/1/static/email-svgrepo-com(1).svg" alt="">
+                        <p class="roboto-light">{{ .Contact.Email }}</p>
+                    </div>
+                    <div class="contact-info">
+                        <img width="30px;" src="/home/max/coding/cv-generator/templates/1/static/internet-svgrepo-com.svg" alt="">
+                        <p class="roboto-light">{{ .Contact.Website }}</p>
+                    </div>
+                    <div class="contact-info">
+                        <img width="30px;" src="/home/max/coding/cv-generator/templates/1/static/location-point-svgrepo-com.svg" alt="">
+                        <p class="roboto-light">{{ .Contact.Location }}</p>
+                    </div>
+                </div>
+                <hr class="divider-dashed">
+                <div class="skills">
+                    <h1 class="roboto-medium">SKILLS</h1>
+                    <ul>
+                        {{ range .Skills }}
+                            <li class="roboto-light">{{ . }}</li>
+                        {{ end }}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="main-info">
+                Grid Column 2
+            </div>
+
+        </div>
     </body>
 </html>
 
