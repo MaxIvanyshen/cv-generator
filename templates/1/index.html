@@ -80,7 +80,7 @@
                     <h2 class="roboto-light">PROFESSIONAL EXPERIENCE</h2> 
                     {{ range .Experiences  }}
                         <div class="experience">
-                            <h3 class="roboto-bold">{{ .Title }}</h3> 
+                            <h3 class="roboto-bold">{{ .Title }} ({{ .StartYear }}-{{ .EndYear}})</h3> 
                             <p class="roboto-light">{{ .Description }}</p> 
                         </div>
                     {{ end }}

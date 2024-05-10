@@ -3,7 +3,7 @@
     background-color: #f8f8f8;
     float: left;
     margin: 0px 30px 0px 0px;
-    padding: 0px 15px 36.5% 0px;
+    padding: 0px 15px 35% 0px;
     width: 35%;
 }
 
@@ -73,4 +73,6 @@ hr.divider-dashed {
 .about {
     margin: 0px 0px 30px 0px;
 }
-
+.about {
+    margin: 0px 0px 30px 0px;
+}
