@@ -10,7 +10,13 @@ import (
 )
 
 func GeneratePDF(cv cv.CV, templateN uint) error {
+
     html, err := renderTemplate(cv, templateN)
+    if err != nil {
+        return err
+    }
+
+    err = os.MkdirAll("./out", os.ModePerm)
     if err != nil {
         return err
     }

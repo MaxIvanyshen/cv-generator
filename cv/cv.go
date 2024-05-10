@@ -12,7 +12,7 @@ type CV struct {
     Title string `json:"title"`
     Contact Contact `json:"contact"`
     Skills []string `json:"skills"`
-    //Languages []map[string]string `json:"languages"`
+    Languages map[string]string `json:"languages"`
     Educations []Education `json:"educations"`
     About string `json:"about"`
     Experiences []Experience `json:"experiences"`  
@@ -23,25 +23,6 @@ type Contact struct {
     Email string `json:"email"`
     Website string `json:"website"`
     Location string `json:"location"`
-}
-
-type LangLevel int
-const (
-    NATIVE LangLevel = iota + 1
-    C2
-    C1
-    B2
-    B1
-    A2
-    A1
-)
-
-func (ll LangLevel) String() string {
-    return [...]string{"Native", "C2", "C1", "B2", "B1", "A2", "A1"}[ll-1]
-}
-
-func (ll LangLevel) EnumIndex() int {
-	return int(ll)
 }
 
 type Education struct {

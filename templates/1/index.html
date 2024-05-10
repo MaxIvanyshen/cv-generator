@@ -21,7 +21,7 @@
 
             <div class="sidebar">
                 <div class="contact">
-                    <h1 class="roboto-medium">CONTACT</h1>
+                    <h1 class="roboto-light">CONTACT</h1>
                     <div class="contact-info">
                         <img width="30px;" src="/home/max/coding/cv-generator/templates/1/static/mobile-phone-695.svg" alt="">
                         <p class="roboto-light">{{ .Contact.Phone }}</p>
@@ -41,19 +41,51 @@
                 </div>
                 <hr class="divider-dashed">
                 <div class="skills">
-                    <h1 class="roboto-medium">SKILLS</h1>
+                    <h1 class="roboto-light">SKILLS</h1>
                     <ul>
                         {{ range .Skills }}
                             <li class="roboto-light">{{ . }}</li>
                         {{ end }}
                     </ul>
                 </div>
+                <hr class="divider-dashed">
+                <div class="languages">
+                    <h1 class="roboto-light">LANGUAGES</h1>
+                    <ul>
+                        {{ range $lang, $lvl := .Languages }}
+                            <p class="roboto-light">
+                                {{ $lang }} <span class="roboto-bold">{{ $lvl }}</span>
+                            </p>
+                        {{ end }}
+                    </ul>
+                </div>
+                <hr class="divider-dashed">
+                <div class="education">
+                    <h1 class="roboto-light">EDUCATION</h1>
+                    <ul>
+                        {{ range .Educations }}
+                        <p style="width: 90%;" class="roboto-light">{{ .Title }}, {{ .Specialty }} ({{ .StartYear }}-{{ .EndYear }})</p>
+                        <p style="width: 90%;" class="roboto-medium">{{ .Place }}</p>
+                        {{ end }}
+                    </ul>
+                </div>
             </div>
-
             <div class="main-info">
-                Grid Column 2
+                <div class="about">
+                    <h2 class="roboto-light">PROFILE</h2> 
+                    <p class="roboto-light">{{ .About }}</p>
+                </div>
+                <hr style="border-top: 2px dashed #575757;">
+                <div class="experience-container">
+                    <h2 class="roboto-light">PROFESSIONAL EXPERIENCE</h2> 
+                    {{ range .Experiences  }}
+                        <div class="experience">
+                            <h3 class="roboto-bold">{{ .Title }}</h3> 
+                            <p class="roboto-light">{{ .Description }}</p> 
+                        </div>
+                    {{ end }}
+                </div>
             </div>
-
         </div>
     </body>
 </html>
